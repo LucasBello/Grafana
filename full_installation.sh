@@ -9,11 +9,11 @@
 # sudo pwd
 # ./full_installation.sh
 
-./prometheus.sh
-./node.sh
-./blackbox.sh
-./alertmanager.sh
-./grafana.sh
+./Grafana/prometheus.sh
+./Grafana/node.sh
+./Grafana/blackbox.sh
+./Grafana/alertmanager.sh
+./Grafana/grafana.sh
 
 echo "Installation complete."
 echo "Visit port 3000 to view grafana dashboards."
