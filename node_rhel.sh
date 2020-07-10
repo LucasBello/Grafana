@@ -1,26 +1,9 @@
 #!/bin/bash
-
-# Make node_exporter user
-sudo adduser --no-create-home --shell /bin/false -c "Node Exporter User" node_exporter
-
-# Download node_exporter and copy utilities to where they should be in the filesystem
-#VERSION=0.16.0
-VERSION=$(curl https://raw.githubusercontent.com/prometheus/node_exporter/master/VERSION)
-wget https://github.com/prometheus/node_exporter/releases/download/v${VERSION}/node_exporter-${VERSION}.linux-amd64.tar.gz
-tar xvzf node_exporter-${VERSION}.linux-amd64.tar.gz
-
-sudo cp node_exporter-${VERSION}.linux-amd64/node_exporter /usr/local/bin/
-sudo chown node_exporter:node_exporter /usr/local/bin/node_exporter
-
-# systemd
-cat Grafana/node_rhel/node_exporter.service | sudo tee /etc/systemd/system/node_exporter.service
-
-sudo systemctl daemon-reload
-sudo systemctl enable node_exporter
-sudo systemctl start node_exporter
-
-# Installation cleanup
-rm node_exporter-${VERSION}.linux-amd64.tar.gz
-rm -rf node_exporter-${VERSION}.linux-amd64
-
-
+sudo rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+sudo subscription-manager repos --enable "rhel-*-optional-rpms" --enable "rhel-*-extras-rpms"
+sudo yum update -y
+sudo yum install snapd -y
+sudo systemctl enable --now snapd.socket
+sudo ln -s /var/lib/snapd/snap /snap
+sleep 10
+sudo snap install node-exporter --beta
