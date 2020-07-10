@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Download grafana
-wget https://dl.grafana.com/oss/release/grafana-7.0.6.linux-amd64.tar.gz
+wget https://dl.grafana.com/oss/release/grafana_7.0.6_amd64.deb
 
 # Install grafana
 sudo apt-get install -y adduser libfontconfig
-tar -zxvf grafana-7.0.6.linux-amd64.tar.gz
+sudo dpkg -i grafana_7.0.6_amd64.deb
 
 # systemd
 sudo systemctl daemon-reload
