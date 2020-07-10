@@ -5,5 +5,6 @@ sudo yum update -y
 sudo yum install snapd -y
 sudo systemctl enable --now snapd.socket
 sudo ln -s /var/lib/snapd/snap /snap
-sleep 10
+sleep 30
 sudo snap install node-exporter --beta
+sudo snap install prometheus-blackbox-exporter
