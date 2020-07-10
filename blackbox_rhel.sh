@@ -18,8 +18,8 @@ sudo cp blackbox_exporter-${VERSION}.linux-amd64/blackbox_exporter /usr/local/bi
 sudo chown blackbox_exporter:blackbox_exporter /usr/local/bin/blackbox_exporter
 
 # Populate configuration files
-cat Grafana/blackbox/blackbox.yml | sudo tee /etc/blackbox/blackbox.yml
-cat Grafana/blackbox/blackbox_exporter.service | sudo tee /etc/systemd/system/blackbox_exporter.service
+cat Grafana/blackbox_rhel/blackbox.yml | sudo tee /etc/blackbox/blackbox.yml
+cat Grafana/blackbox_rhel/blackbox_exporter.service | sudo tee /etc/systemd/system/blackbox_exporter.service
 
 # systemd
 sudo systemctl daemon-reload
