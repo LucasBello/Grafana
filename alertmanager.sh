@@ -25,8 +25,8 @@ sudo chown alertmanager:alertmanager /usr/local/bin/alertmanager
 sudo chown alertmanager:alertmanager /usr/local/bin/amtool
 
 # Populate configuration files
-cat ./alertmanager/alertmanager.yml | sudo tee /etc/alertmanager/alertmanager.yml
-cat ./alertmanager/alertmanager.service | sudo tee /etc/systemd/system/alertmanager.service
+cat Grafana/alertmanager/alertmanager.yml | sudo tee /etc/alertmanager/alertmanager.yml
+cat Grafana/alertmanager/alertmanager.service | sudo tee /etc/systemd/system/alertmanager.service
 
 # systemd
 sudo systemctl daemon-reload

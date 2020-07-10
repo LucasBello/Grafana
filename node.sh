@@ -13,7 +13,7 @@ sudo cp node_exporter-${VERSION}.linux-amd64/node_exporter /usr/local/bin/
 sudo chown node_exporter:node_exporter /usr/local/bin/node_exporter
 
 # systemd
-cat ./node/node_exporter.service | sudo tee /etc/systemd/system/node_exporter.service
+cat Grafana/node/node_exporter.service | sudo tee /etc/systemd/system/node_exporter.service
 
 sudo systemctl daemon-reload
 sudo systemctl enable node_exporter
