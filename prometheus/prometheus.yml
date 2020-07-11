@@ -23,12 +23,18 @@ scrape_configs:
   - job_name: 'BB_WIKI01'
     scrape_interval: 5s
     static_configs:
-      - targets: ['10.0.1.10:9155']
+      - targets:
+        - http://10.0.1.10:9115
+        labels:
+          group: 'mediawiki01'
 
   - job_name: 'BB_WIKI02'
     scrape_interval: 5s
     static_configs:
-      - targets: ['10.0.2.20:9155']
+      - targets:
+        - http://10.0.2.20:9115
+        labels:
+          group: 'mediawiki02'
 
   - job_name: 'BB_SQL'
     scrape_interval: 5s
