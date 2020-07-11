@@ -1,1 +1,1 @@
-Intalação Grafama, Node Exporter e Black Box Exporter
+Intalação Grafana, Node Exporter e Black Box Exporter
